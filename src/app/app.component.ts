@@ -9,3 +9,4 @@ export class AppComponent {
   title = 'Tour of Heros';
   name ='Chad';
 }
+console.log('hi');

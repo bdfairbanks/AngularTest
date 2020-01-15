@@ -1,9 +1,13 @@
 <h2>My heros</h2>
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes" 
-    (click)="onSelect(hero)" 
-    [class.selected]="hero === selectedHero">
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
     </li>
-</ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+    <p>add a new hero</p>
+    <form>
+      <input placeholder="name" #newHero>
+      <button  (click)="dbConnectService.addToDB(newHero.value)">Submit</button>
+    </form>
+  </ul>
